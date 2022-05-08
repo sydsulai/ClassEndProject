@@ -1,7 +1,7 @@
 FROM python:3-alpine
-WORKDIR /usr/src/app
-EXPOSE 8000
+WORKDIR /app
 COPY requirements.txt .
-RUN pip install -qr requirements.txt
-COPY server.py .
-CMD ["python3", "./server.py"]
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 5000 
+CMD ["python", "app.py"]
